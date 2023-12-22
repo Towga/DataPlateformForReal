@@ -6,9 +6,11 @@ namespace App\Orchid;
 
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
+use Orchid\Platform\ItemMenu;
 use Orchid\Platform\OrchidServiceProvider;
 use Orchid\Screen\Actions\Menu;
 use Orchid\Support\Color;
+use Orchid\Support\Facades\Dashboard as OrchidDashboard;
 
 class PlatformProvider extends OrchidServiceProvider
 {
@@ -22,8 +24,6 @@ class PlatformProvider extends OrchidServiceProvider
     public function boot(Dashboard $dashboard): void
     {
         parent::boot($dashboard);
-
-        // ...
     }
 
     /**
@@ -43,6 +43,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('bs.collection')
                 ->route('platform.example')
                 ->badge(fn () => 6),
+
+            Menu::make('Candidats')
+                ->icon('bs.people') // choose an appropriate icon
+                ->route('plateform.Candidat'), // the route name you defined for CandidatScreen
+
 
             Menu::make('Form Elements')
                 ->icon('bs.card-list')
